@@ -1,0 +1,18 @@
+# github.com/Unknwon/com v0.0.0-20181010210213-41959bdd855f
+github.com/Unknwon/com
+# github.com/go-macaron/inject v0.0.0-20160627170012-d8a0b8677191
+github.com/go-macaron/inject
+# github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1
+github.com/gopherjs/gopherjs/js
+# github.com/jtolds/gls v4.2.1+incompatible
+github.com/jtolds/gls
+# gopkg.in/ini.v1 v1.39.0
+gopkg.in/ini.v1
+# gopkg.in/macaron.v1 v1.3.1
+gopkg.in/macaron.v1
+# gopkg.in/mgo.v2 v2.0.0-20180705113604-9856a29383ce
+gopkg.in/mgo.v2
+gopkg.in/mgo.v2/bson
+gopkg.in/mgo.v2/internal/sasl
+gopkg.in/mgo.v2/internal/scram
+gopkg.in/mgo.v2/internal/json
