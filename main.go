@@ -1,48 +1,22 @@
 package main
 
 import (
-	"fmt"
+	"personal/handler"
 
 	//_ "golang.org/x/crypto"
+	"github.com/go-macaron/i18n"
 
 	_ "github.com/jtolds/gls"
 
 	"gopkg.in/macaron.v1"
-	"gopkg.in/mgo.v2"
-	"gopkg.in/mgo.v2/bson"
+
 	"log"
 	"personal/moudle"
 )
 
 func main() {
 
-	log.Print("hello")
-
-	db, err := mgo.Dial("localhost:27017")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
-
-	// Optional. Switch the session to a monotonic behavior.
-	db.SetMode(mgo.Monotonic, true)
-
-	c := db.DB("personal").C("article")
-	err = c.Insert(&moudle.Article{Title: "Ale", Content: "hello mingbai"},
-		&moudle.Article{Title: "Cla", Content: "+55 53 8402 8510"})
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	result := moudle.Article{}
-	err = c.Find(bson.M{"title": "Ale"}).One(&result)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("Phone:", result.Content)
-
-	/*moudle.Init()
+	moudle.Init()
 
 	m := macaron.Classic()
 	m.Use(i18n.I18n(i18n.Options{
@@ -51,7 +25,7 @@ func main() {
 	}))
 
 	m.Get("/languages", func(locale i18n.Locale) string {
-		return "current language is" + locale.Lang
+		return "current language is" + locale.Language()
 	})
 
 	m.Group("/ming", func() {
@@ -62,8 +36,8 @@ func main() {
 		}, nil, nil)
 	}, nil, nil)
 
-	log.Print("hello")*/
-	//m.Run("8000")
+	log.Print("hello")
+	m.Run("8000")
 }
 
 func Ping(ctx *macaron.Context) string {
