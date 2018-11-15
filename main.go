@@ -13,6 +13,8 @@ func main() {
 	moudle.Init()
 
 	m := macaron.Classic()
+	m.Use(macaron.Renderer())
+
 	m.Get("/languages", func(locale i18n.Locale) string {
 		return "current language is" + locale.Language()
 	})
@@ -29,5 +31,5 @@ func main() {
 }
 
 func Ping(ctx *macaron.Context) string {
-	return "hello %s"+ "world"
+	return "hello %s" + "world"
 }

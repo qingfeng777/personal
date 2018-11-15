@@ -12,7 +12,9 @@ import (
 func Router(m *macaron.Macaron) {
 	m.Get("/article", GetArticle)
 	m.Post("/article", binding.Bind(moudle.Article{}), AddArticle)
-
+	m.Delete("/article/:Id", binding.Bind(moudle.Article{}), DelArticle)
+	m.Get("/article/:Id",binding.Bind(moudle.Article{}), GetArticleById)
+	m.Put("/article", binding.Bind(moudle.Article{}), UpdateArticle)
 }
 
 type Resp struct {
