@@ -6,6 +6,16 @@ import (
 	"time"
 )
 
+
+type ArticleClient interface {
+	List() ([]Article, error)
+	ById() (*Article, error)
+	Update() error
+	Add() error
+	Delete() error
+}
+
+
 type Counter struct {
 	View    int `json:"view"`
 	Like    int `json:"like"`
@@ -36,38 +46,30 @@ type Article struct {
 	Id       bson.ObjectId `json:"id" bson:"_id,omitempty"`
 }
 
-type ArticleClient interface {
-	List() ([]Article, error)
-	ById() (*Article, error)
-	Update() error
-	Add() error
-	Delete() error
-}
-
 func (*Article) List() ([]Article, error) {
 	var result []Article
-	return result, ArticleCollection().Find(bson.M{"state": 0}).All(&result)
+	return result, articleCollection().Find(bson.M{"state": 0}).All(&result)
 }
 
 func (article *Article) ById() (*Article, error) {
-	return article, ArticleCollection().Find(bson.M{"id": article.Id}).One(article)
+	return article, articleCollection().Find(bson.M{"id": article.Id}).One(article)
 }
 
 func (article *Article) Update() error {
 	article.UpdateAt = time.Now().Unix()
-	return ArticleCollection().Update(bson.M{"id": article.Id}, article)
+	return articleCollection().Update(bson.M{"id": article.Id}, article)
 }
 
 func (article *Article) Add() error {
 	article.CreateAt = time.Now().Unix()
-	return ArticleCollection().Insert(article)
+	return articleCollection().Insert(article)
 }
 
 func (article *Article) Delete() error {
 	article.State = 1
-	return ArticleCollection().Update(bson.M{"id": article.Id}, article)
+	return articleCollection().Update(bson.M{"id": article.Id}, article)
 }
 
-func ArticleCollection() *mgo.Collection {
+func articleCollection() *mgo.Collection {
 	return mdb.DB(typeDB).C(typeArticle)
 }
