@@ -22,9 +22,8 @@ type Category struct {
 type Page struct {
 	Name  string
 	Block []Category
+	Site  Site
 	Id    bson.ObjectId `json:"id" bson:"_id,omitempty"`
 }
-
-// two  api
 
 

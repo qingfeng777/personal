@@ -5,7 +5,7 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
-type UserClient interface {
+type UserOperation interface {
 	Add() error
 	Get() (*User, error)
 }

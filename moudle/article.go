@@ -7,7 +7,7 @@ import (
 )
 
 
-type ArticleClient interface {
+type ArticleOperation interface {
 	List() ([]Article, error)
 	ById() (*Article, error)
 	Update() error

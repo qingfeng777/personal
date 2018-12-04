@@ -5,7 +5,7 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
-type TagClient interface {
+type TagOperation interface {
 	List() ([]Tag, error)
 	Add() error
 	Delete() error
