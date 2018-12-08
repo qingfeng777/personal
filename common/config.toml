@@ -1,0 +1,14 @@
+[app]
+goMaxPro    = 1
+port        = 7878
+timeOut     = 3     # second
+releaseMode = false
+prefix      = "ming"
+
+[log]
+level = "debug"
+
+[db]
+url     = "localhost:27017"
+maxIdle = 1
+maxOpen = 2

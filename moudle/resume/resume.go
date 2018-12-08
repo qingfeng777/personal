@@ -1,4 +1,4 @@
-package moudle
+package resume
 
 import "gopkg.in/mgo.v2/bson"
 

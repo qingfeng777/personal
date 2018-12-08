@@ -1,3 +1,5 @@
+github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
+github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/Unknwon/com v0.0.0-20181010210213-41959bdd855f h1:m1tYqjD/N0vF/S8s/ZKz/eccUr8RAAcrOK2MhXeTegA=
 github.com/Unknwon/com v0.0.0-20181010210213-41959bdd855f/go.mod h1:KYCjqMOeHpNuTOiFQU6WEcTG7poCJrUs0YgyHNtn1no=
 github.com/Unknwon/i18n v0.0.0-20171114194641-b64d33658966 h1:Mp8GNJ/tdTZIEdLdZfykEJaL3mTyEYrSzYNcdoQKpJk=
