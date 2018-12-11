@@ -52,14 +52,15 @@ func main() {
 
 func setCorsAllow(ctx *macaron.Context) {
 	// 设置为可跨域访问
-	ctx.Header().Add("Access-Control-Allow-Origin", "*")
+	ctx.Header().Add("Access-Control-Allow-Origin", "http://localhost:8080")
 	ctx.Header().Add("Access-Control-Allow-Methods", "OPTIONS,POST,GET,OPTIONS,DELETE,PUT")
 	ctx.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 	ctx.Header().Add("Access-Control-Allow-Credentials", "true")
 	//ctx.JSON(200, nil)
 
 	if ctx.Req.Method == "OPTIONS" {
-		ctx.JSON(http.StatusOK, "Options Request!")
+		ctx.JSON(http.StatusOK, handler.Resp{Code:200, Msg:"options request"})
+		return
 	}
 	ctx.Next()
 

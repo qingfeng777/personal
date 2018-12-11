@@ -29,7 +29,7 @@ func AddArticle(article moudle.Article, ctx *macaron.Context) {
 		ctx.JSON(http.StatusInternalServerError, Resp{Code: http.StatusInternalServerError, Msg: utils.LogErrorF("add article is error ", err.Error())})
 	}
 
-	ctx.JSON(http.StatusInternalServerError, Resp{Code: http.StatusOK, Msg: "success"})
+	ctx.JSON(http.StatusOK, Resp{Code: http.StatusOK, Msg: "success"})
 }
 
 func DelArticle(article moudle.Article, ctx *macaron.Context) {
