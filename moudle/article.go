@@ -36,9 +36,9 @@ type Article struct {
 	Pwd      string        `json:"pwd"`
 	Tag      []string      `json:"tag"`
 	Category string        `json:"category"`
-	Title    string        `json:"title"`
+	Title    string        `json:"title" binding:"Required"`
 	Desc     string        `json:"desc"`
-	Content  string        `json:"content"`
+	Content  string        `json:"content" binding:"Required"`
 	Thumb    string        `json:"thumb"`
 	Extends  []Extend      `json:"extends"`
 	CreateAt int64         `json:"create_at"`

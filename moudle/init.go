@@ -19,7 +19,7 @@ func Init() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer mdb.Close()
+	//defer mdb.Close()
 
 	// Optional. Switch the session to a monotonic behavior.
 	//mdb.SetMode(mgo.Monotonic, true)
