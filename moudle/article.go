@@ -29,7 +29,7 @@ type Extend struct {
 
 type Article struct {
 	Counter  Counter       `json:"counter"`
-	KeyWord  []string      `json:"key_word"`
+	KeyWord  string        `json:"keyWord"`
 	State    int           `json:"state"`
 	Public   int           `json:"public"` // 0 public ,1 private
 	Origin   int           `json:"origin"` // 0 or 1
@@ -41,8 +41,8 @@ type Article struct {
 	Content  string        `json:"content" binding:"Required"`
 	Thumb    string        `json:"thumb"`
 	Extends  []Extend      `json:"extends"`
-	CreateAt int64         `json:"create_at"`
-	UpdateAt int64         `json:"update_at"`
+	CreateAt int64         `json:"createAt"`
+	UpdateAt int64         `json:"updateAt"`
 	Id       bson.ObjectId `json:"id" bson:"_id,omitempty"`
 }
 

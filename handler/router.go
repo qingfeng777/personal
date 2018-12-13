@@ -15,6 +15,7 @@ func Router(m *macaron.Macaron) {
 	m.Delete("/article/:Id", binding.Bind(moudle.Article{}), DelArticle)
 	m.Get("/article/:Id",binding.Bind(moudle.Article{}), GetArticleById)
 	m.Put("/article", binding.Bind(moudle.Article{}), UpdateArticle)
+	cateGoryRouter(m)
 }
 
 type Resp struct {

@@ -11,13 +11,12 @@ type TagOperation interface {
 	Delete() error
 }
 
-
 type Tag struct {
 	Name     string   `json:"name"`
 	Slug     string   `json:"slug"`
 	Desc     string   `json:"desc"`
 	Extends  []Extend `json:"extends"`
-	CreateAt int64    `json:"create_at"`
+	CreateAt int64    `json:"createAt"`
 	Id       int      `json:"id"`
 	State    int      `json:"state"`
 }
