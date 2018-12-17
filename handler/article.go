@@ -3,6 +3,7 @@ package handler
 import (
 	"gopkg.in/macaron.v1"
 	"net/http"
+	"personal/server"
 
 	"personal/moudle"
 	"personal/utils"
@@ -25,6 +26,10 @@ func GetArticle(ctx *macaron.Context) {
 }
 
 func AddArticle(article moudle.Article, ctx *macaron.Context) {
+	if err :=server.CheckAndAdd(article.Category); err != nil{
+		ctx.JSON(http.StatusInternalServerError, Resp{Code: http.StatusInternalServerError, Msg: utils.LogErrorF("check category err: ", err.Error())})
+	}
+
 	if err := article.Add(); err != nil {
 		ctx.JSON(http.StatusInternalServerError, Resp{Code: http.StatusInternalServerError, Msg: utils.LogErrorF("add article is error ", err.Error())})
 	}

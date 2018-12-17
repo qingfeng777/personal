@@ -3,6 +3,7 @@ package moudle
 import (
 "gopkg.in/mgo.v2"
 "gopkg.in/mgo.v2/bson"
+	"time"
 )
 
 type CategoryOperation interface {
@@ -27,6 +28,7 @@ func (Category) List() ([]Category, error) {
 }
 
 func (category *Category) Add() error {
+	category.CreateAt = time.Now().Unix()
 	return categoryCollection().Insert(category)
 }
 
