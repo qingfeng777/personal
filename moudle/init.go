@@ -7,7 +7,7 @@ import (
 	"gopkg.in/mgo.v2"
 )
 
-const typeDB, typeArticle, typeUser, typeTag, typeCategory =  "personal", "article", "User", "tag", "typeCategory"
+const typeDB, typeArticle, typeUser, typeTag, typeCategory =  "personal", "article", "user", "tag", "category"
 
 var mdb *mgo.Session
 

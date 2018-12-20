@@ -48,7 +48,7 @@ type Article struct {
 
 func (*Article) List() ([]Article, error) {
 	var result []Article
-	return result, articleCollection().Find(bson.M{"state": 0}).All(&result)
+	return result, articleCollection().Find(bson.M{"state": 0}).Limit(3).Skip(0).All(&result)
 }
 
 func (article *Article) ById() (*Article, error) {
@@ -57,7 +57,7 @@ func (article *Article) ById() (*Article, error) {
 
 func (article *Article) Update() error {
 	article.UpdateAt = time.Now().Unix()
-	return articleCollection().Update(bson.M{"id": article.Id}, article)
+	return articleCollection().Update(bson.M{"_id": article.Id}, article)
 }
 
 func (article *Article) Add() error {
