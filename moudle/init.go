@@ -7,7 +7,7 @@ import (
 	"gopkg.in/mgo.v2"
 )
 
-const typeDB, typeArticle, typeUser, typeTag, typeCategory =  "personal", "article", "user", "tag", "category"
+const typeDB, typeArticle, typeUser, typeTag, typeCategory = "personal", "article", "user", "tag", "category"
 
 var mdb *mgo.Session
 
@@ -23,4 +23,11 @@ func Init() {
 
 	// Optional. Switch the session to a monotonic behavior.
 	//mdb.SetMode(mgo.Monotonic, true)
+}
+
+type Pagination struct {
+	Admin bool   `json:"admin"`
+	Page  int    `json:"page"`
+	Limit int    `json:"limit"`
+	Key   string `json:"key"`
 }

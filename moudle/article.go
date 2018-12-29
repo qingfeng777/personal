@@ -6,15 +6,14 @@ import (
 	"time"
 )
 
-
 type ArticleOperation interface {
-	List() ([]Article, error)
+	Search(pagination Pagination) ([]Article, error)
+	List(limit, page int) ([]Article, error)
 	ById() (*Article, error)
 	Update() error
 	Add() error
 	Delete() error
 }
-
 
 type Counter struct {
 	View    int `json:"view"`
@@ -46,9 +45,18 @@ type Article struct {
 	Id       bson.ObjectId `json:"id" bson:"_id,omitempty"`
 }
 
-func (*Article) List() ([]Article, error) {
+func (*Article) Count(pagination Pagination) (int, error) {
+	return articleCollection().Find(bson.M{"state": 0,"content": bson.RegEx{pagination.Key,"."}}).Count()
+}
+
+func (*Article) Search(pagination Pagination) ([]Article, error) {
 	var result []Article
-	return result, articleCollection().Find(bson.M{"state": 0}).Limit(3).Skip(0).All(&result)
+	return result, articleCollection().Find(bson.M{"state": 0,"content": bson.RegEx{pagination.Key,"."}}).Limit(pagination.Limit).Skip((pagination.Page-1)*pagination.Limit).All(&result)
+}
+
+func (*Article) List(limit, page int) ([]Article, error) {
+	var result []Article
+	return result, articleCollection().Find(bson.M{"state": 0}).Limit(limit).Skip((page-1)*limit).All(&result)
 }
 
 func (article *Article) ById() (*Article, error) {

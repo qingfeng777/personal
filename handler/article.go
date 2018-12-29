@@ -1,17 +1,33 @@
 package handler
 
 import (
-	"gopkg.in/macaron.v1"
 	"net/http"
-	"personal/server"
+
+	"gopkg.in/macaron.v1"
 
 	"personal/moudle"
+	"personal/server"
 	"personal/utils"
 )
 
+func SearchArticle(ctx *macaron.Context, pagination moudle.Pagination) {
+	art := new(moudle.Article)
+	article, err := art.Search(pagination)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, Resp{Code: http.StatusInternalServerError, Msg: utils.LogErrorF("search article  error ", err.Error())})
+	}
+
+	total, err := art.Count(pagination)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, Resp{Code: http.StatusInternalServerError, Msg: utils.LogErrorF("count article  error ", err.Error())})
+	}
+
+	ctx.JSON(http.StatusOK, Resp{Code: http.StatusOK, Data: article, Total:total})
+}
+
 func GetArticle(ctx *macaron.Context) {
 	art := new(moudle.Article)
-	article, err := art.List()
+	article, err := art.List(ctx.ParamsInt(":limit"), ctx.ParamsInt(":page"))
 	if err != nil {
 		ctx.JSON(
 			http.StatusInternalServerError,
@@ -26,7 +42,7 @@ func GetArticle(ctx *macaron.Context) {
 }
 
 func AddArticle(article moudle.Article, ctx *macaron.Context) {
-	if err :=server.CheckAndAdd(article.Category); err != nil{
+	if err := server.CheckAndAdd(article.Category); err != nil {
 		ctx.JSON(http.StatusInternalServerError, Resp{Code: http.StatusInternalServerError, Msg: utils.LogErrorF("check category err: ", err.Error())})
 	}
 
@@ -46,7 +62,7 @@ func DelArticle(article moudle.Article, ctx *macaron.Context) {
 }
 
 func UpdateArticle(article moudle.Article, ctx *macaron.Context) {
-	if err :=server.CheckAndAdd(article.Category); err != nil{
+	if err := server.CheckAndAdd(article.Category); err != nil {
 		ctx.JSON(http.StatusInternalServerError, Resp{Code: http.StatusInternalServerError, Msg: utils.LogErrorF("check category err: ", err.Error())})
 	}
 
@@ -63,5 +79,5 @@ func GetArticleById(article moudle.Article, ctx *macaron.Context) {
 		ctx.JSON(http.StatusInternalServerError, Resp{Code: http.StatusInternalServerError, Msg: utils.LogErrorF("get article is error ", err.Error())})
 	}
 
-	ctx.JSON(http.StatusOK, Resp{Code: http.StatusOK, Data:art, Msg: "success"})
+	ctx.JSON(http.StatusOK, Resp{Code: http.StatusOK, Data: art, Msg: "success"})
 }
