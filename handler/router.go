@@ -3,8 +3,9 @@ package handler
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/go-macaron/binding"
+
 	"personal/moudle"
+	"personal/pkg/binding"
 
 	"gopkg.in/macaron.v1"
 )

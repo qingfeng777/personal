@@ -2,7 +2,7 @@ module personal
 
 require (
 	github.com/BurntSushi/toml v0.3.1
-	github.com/Unknwon/com v0.0.0-20181010210213-41959bdd855f // indirect
+	github.com/Unknwon/com v0.0.0-20181010210213-41959bdd855f
 	github.com/Unknwon/i18n v0.0.0-20171114194641-b64d33658966 // indirect
 	github.com/go-macaron/binding v0.0.0-20170611065819-ac54ee249c27
 	github.com/go-macaron/csrf v0.0.0-20180914142414-18bf065728b4 // indirect

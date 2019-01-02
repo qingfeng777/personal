@@ -2,8 +2,8 @@ package handler
 
 import (
 	"net/http"
+	"personal/pkg/binding"
 
-	"github.com/go-macaron/binding"
 	"gopkg.in/macaron.v1"
 
 	"personal/moudle"
