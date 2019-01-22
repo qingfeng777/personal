@@ -2,10 +2,9 @@ package handler
 
 import (
 	"net/http"
+
 	"personal/pkg/binding"
-
-	"gopkg.in/macaron.v1"
-
+	"personal/pkg/macaron"
 	"personal/moudle"
 	"personal/utils"
 )

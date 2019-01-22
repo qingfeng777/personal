@@ -6,8 +6,7 @@ import (
 
 	"personal/moudle"
 	"personal/pkg/binding"
-
-	"gopkg.in/macaron.v1"
+	"personal/pkg/macaron"
 )
 
 func Router(m *macaron.Macaron) {

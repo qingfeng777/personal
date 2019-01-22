@@ -7,8 +7,8 @@ import (
 	"runtime"
 
 	"github.com/go-macaron/i18n"
-	"gopkg.in/macaron.v1"
 
+	"personal/pkg/macaron"
 	"personal/common"
 	"personal/handler"
 	"personal/moudle"

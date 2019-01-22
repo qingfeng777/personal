@@ -3,8 +3,7 @@ package handler
 import (
 	"net/http"
 
-	"gopkg.in/macaron.v1"
-
+	"personal/pkg/macaron"
 	"personal/moudle"
 	"personal/server"
 	"personal/utils"

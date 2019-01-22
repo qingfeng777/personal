@@ -29,8 +29,9 @@ import (
 	"strings"
 	"unicode/utf8"
 
+	"personal/pkg/macaron"
+
 	"github.com/Unknwon/com"
-	"gopkg.in/macaron.v1"
 )
 
 const _VERSION = "0.6.0"
@@ -233,7 +234,7 @@ func strFirstToUpper(str string) string {
 	if len(str) < 1 {
 		return ""
 	}
-	strArry := []rune(str)//strings.Split(str, "")
+	strArry := []rune(str)
 	if strArry[0] >= 97&& strArry[0] <= 122  {
 		strArry[0] = strArry[0] - 32
 	}

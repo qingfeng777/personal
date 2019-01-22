@@ -7,7 +7,7 @@ require (
 	github.com/go-macaron/binding v0.0.0-20170611065819-ac54ee249c27
 	github.com/go-macaron/csrf v0.0.0-20180914142414-18bf065728b4 // indirect
 	github.com/go-macaron/i18n v0.0.0-20160612092837-ef57533c3b0f
-	github.com/go-macaron/inject v0.0.0-20160627170012-d8a0b8677191 // indirect
+	github.com/go-macaron/inject v0.0.0-20160627170012-d8a0b8677191
 	github.com/go-macaron/renders v0.0.0-20151026045949-c889aa4911a1
 	github.com/go-macaron/session v0.0.0-20181205003248-092353907b3c // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1 // indirect
@@ -17,10 +17,10 @@ require (
 	github.com/rs/cors v1.6.0 // indirect
 	github.com/smartystreets/assertions v0.0.0-20180927180507-b2de0cb4f26d // indirect
 	github.com/smartystreets/goconvey v0.0.0-20180222194500-ef6db91d284a // indirect
-	golang.org/x/crypto v0.0.0-20181112202954-3d3f9f413869 // indirect
+	golang.org/x/crypto v0.0.0-20181112202954-3d3f9f413869
 	golang.org/x/text v0.3.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
-	gopkg.in/ini.v1 v1.39.0 // indirect
+	gopkg.in/ini.v1 v1.39.0
 	gopkg.in/macaron.v1 v1.3.1
 	gopkg.in/mgo.v2 v2.0.0-20180705113604-9856a29383ce
 	gopkg.in/yaml.v2 v2.2.1 // indirect
