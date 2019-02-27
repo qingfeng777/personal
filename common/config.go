@@ -22,6 +22,7 @@ type App struct {
 	TimeOut     uint8
 	ReleaseMode bool
 	Prefix      string
+	Cros        string
 }
 
 //db

@@ -4,6 +4,7 @@ port        = 7878
 timeOut     = 3     # second
 releaseMode = false
 prefix      = "ming"
+cros        = "http://localhost:8080"
 
 [log]
 level = "debug"

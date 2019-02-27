@@ -52,7 +52,7 @@ func main() {
 
 func setCorsAllow(ctx *macaron.Context) {
 	// 设置为可跨域访问
-	ctx.Header().Add("Access-Control-Allow-Origin", "http://localhost:8080")
+	ctx.Header().Add("Access-Control-Allow-Origin", common.ConfigRef.App.Cros)
 	ctx.Header().Add("Access-Control-Allow-Methods", "OPTIONS,POST,GET,OPTIONS,DELETE,PUT")
 	ctx.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 	ctx.Header().Add("Access-Control-Allow-Credentials", "true")
